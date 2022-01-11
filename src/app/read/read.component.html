@@ -1,0 +1,39 @@
+<div class="container mt-5">
+<!--mensaje-->
+
+        <!-- errores --> 
+        <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+          <strong>{{successmsg}}</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+    <br>
+    <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Puesto</th>
+            <th scope="col">Fecha Nacimiento</th>
+            <th scope="col">Domicilio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor ='let em of readData'>
+            <th scope="row">{{em.idempleado}}</th>
+            <td>{{em.nombre}}</td>
+            <td>{{em.email}}</td>
+            <td>{{em.puesto}}</td>
+            <td>{{em.fechanacimiento}}</td>
+            <td>{{em.domicilio}}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="deleteID(em.idempleado)">Eliminar</button>
+              &nbsp;
+              <a  [routerLink]="['/create',em.idempleado]"    class="btn btn-sm btn-success">Actualizar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</div>

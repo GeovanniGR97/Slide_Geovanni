@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    
+    <!-- errores --> 
+    <div *ngIf="errormsg" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{errormsg}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+        <!-- errores --> 
+        <div *ngIf="successmsg" class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{successmsg}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+
+
+
+    <form [formGroup]="empleadoForm" >
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="puesto" placeholder="Puesto">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="date" class="form-control" formControlName="fechanacimiento" placeholder="Fecha Nacimiento">
+        </div>
+
+        <div class="col-lg-4 mt-2">
+            <input type="text" class="form-control" formControlName="domicilio" placeholder="Domicilio">
+        </div>
+        <div class="col-lg-4 mt-2" *ngIf="!getparamidempleado" (click)="empleadoSubmit()">
+            <button class="btn btn-primary btn-sm">Crear</button>
+            
+        </div>
+        <div class="col-lg-4 mt-2" *ngIf="getparamidempleado" (click)="empleadoUpdate()">
+            <button class="btn btn-dark btn-sm">Actualizar</button>
+            
+        </div>
+    </form>
+
+</div>
